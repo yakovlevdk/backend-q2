@@ -20,7 +20,8 @@ function Login() {
         body: JSON.stringify(data),
         credentials: "include",
       });
-      if (response.ok) {
+      const result = await response.json();
+      if (result) {
         navigate("/requests");
       } else {
         const errorResponse = await response.json();

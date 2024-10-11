@@ -36,7 +36,8 @@ app.post("/user", async (req, res) => {
 });
 
 app.post("/requests", async (req, res) => {
-  await addRequest(req.body);
+  const newRequest = await addRequest(req.body);
+  res.status(201).json(newRequest);
 });
 app.use(auth);
 
